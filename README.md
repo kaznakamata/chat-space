@@ -2,10 +2,10 @@
 
 |Column|Type|Options|
 |------|----|-------|
-|body|text|null: false|
-|image|string|null: true|
-|user_id|integer|null: false, foreign_key: true|
-|group_id|integer|null: false, foreign_key: true|
+|body|text||
+|image|string||
+t.references :user, null: false , foreign_key: true
+t.references :group, null: false , foreign_key: true
 
 ### Association
 - belongs_to :user
@@ -28,8 +28,8 @@
 
 |Column|Type|Options|
 |------|----|-------|
-|user_id|integer|null: false, foreign_key: true|
-|group_id|integer|null: false, foreign_key: true|
+t.references :user, null: false , foreign_key: true
+t.references :group, null: false , foreign_key: true
 
 ### Association
 - belongs_to :user
