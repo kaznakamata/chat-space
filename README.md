@@ -4,8 +4,8 @@
 |------|----|-------|
 |body|text||
 |image|string||
-t.references :user, null: false , foreign_key: true
-t.references :group, null: false , foreign_key: true
+|user|references|null: false , foreign_key: true|
+|group|references|null: false , foreign_key: true|
 
 ### Association
 - belongs_to :user
@@ -28,8 +28,8 @@ t.references :group, null: false , foreign_key: true
 
 |Column|Type|Options|
 |------|----|-------|
-t.references :user, null: false , foreign_key: true
-t.references :group, null: false , foreign_key: true
+|user|references|null: false , foreign_key: true|
+|group|references|null: false , foreign_key: true|
 
 ### Association
 - belongs_to :user
