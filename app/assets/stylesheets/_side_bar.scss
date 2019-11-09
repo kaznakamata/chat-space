@@ -1,7 +1,7 @@
 .wrapper{
   display: flex;
   height: 100vh;
-  .side_bar{
+  &__side_bar{
     color: $sideTextColor;
     width: 300px;
     &__user{

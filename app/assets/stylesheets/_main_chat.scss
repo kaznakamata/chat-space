@@ -67,23 +67,23 @@
       &__form{
         height: 80px;
         padding: 0 40px;
-        .input-box{
+        &__box{
           height: 50px;
           width: calc(100vw - 520px);
           padding-left: 10px;
           position: absolute;
           top: 13px;
         }
-        .input-box__image{
+        &__image{
           position: absolute;
           height: 80px;
           right: 185px;
           line-height: 80px;
         }
-        .input-box__image__file{
+        &__file{
           display: none;
         }
-        .submit__btn{
+        &__btn{
           background-color: #38AEF0;
           position: absolute;
           right: 40px;
