@@ -4,7 +4,7 @@
       .wrapper__side_bar__user__name
         = current_user.name
       .wrapper__side_bar__user___btn
-        =link_to "#", class: "wrapper__side_bar__user__btn" do
+        =link_to new_group_path, class: "wrapper__side_bar__user__btn" do
           =icon('fas', 'edit')
           %span<>
         =link_to edit_user_path(current_user), class: "wrapper__side_bar__user__btn" do
