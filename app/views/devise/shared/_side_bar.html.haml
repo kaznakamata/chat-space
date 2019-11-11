@@ -13,7 +13,7 @@
     .wrapper__side_bar__groups
       - current_user.groups.each do |group|
         .wrapper__side_bar__groups__view
-          = link_to group_messages_path(group) do
+          =link_to group_messages_path(group) do
             .wrapper__side_bar__groups__view__name
               = group.name
             .wrapper__side_bar__groups__view__message
