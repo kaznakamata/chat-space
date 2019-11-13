@@ -19,8 +19,9 @@
         hoissu
     .group__chat__post
       .group__chat__post__form
-        %input{type: "text", placeholder: "type a message", class: "input-box group__chat__post__form__box"}
-        %label{class: "input-box__image group__chat__post__form__image"}
-          = icon('fas', 'image')
-          %input{type: "file", class: "input-box__image__file group__chat__post__form__file"}
-        %input{type: "submit", value: "Send", class: "group__chat__post__form__btn"}
+        = form_for [@group, @message] do |f|
+          = f.text_field :body, class: "input-box group__chat__post__form__box", placeholder: "type a message"
+          = f.label :image, class: "input-box__image group__chat__post__form__image" do
+            = icon('fas', 'image', class: 'icon')
+            = f.file_field :image, class: 'hidden'
+          = f.submit 'Send', class: "group__chat__post__form__btn"
