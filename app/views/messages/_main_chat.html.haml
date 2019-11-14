@@ -3,25 +3,18 @@
     .group__header__detail
       .group__header__detail__info
         .group__header__detail__info__name
-          group_name
+          = @group.name
         .group__header__detail__info__member
           Member:
       .group__header__edit
         Edit
-  .group__chat
-    .group__chat__contents
-      .group__chat__contents__info
-        .group__chat__contents__info__who
-          shoya
-        .group__chat__contents__info__date
-          2019/10/08 19:14:39
-      .group__chat__contents__message
-        hoissu
-    .group__chat__post
-      .group__chat__post__form
-        = form_for [@group, @message] do |f|
-          = f.text_field :body, class: "input-box group__chat__post__form__box", placeholder: "type a message"
-          = f.label :image, class: "input-box__image group__chat__post__form__image" do
-            = icon('fas', 'image', class: 'icon')
-            = f.file_field :image, class: 'hidden'
-          = f.submit 'Send', class: "group__chat__post__form__btn"
+  .group__chats
+  = render partial:'message', collectoin: @messages
+  .group__chat__post
+    .group__chat__post__form
+      = form_for [@group, @message] do |f|
+        = f.text_field :body, class: "input-box group__chat__post__form__box", placeholder: "type a message"
+        = f.label :image, class: "input-box__image group__chat__post__form__image" do
+          = icon('fas', 'image', class: 'icon')
+          = f.file_field :image, class: 'hidden'
+        = f.submit 'Send', class: "group__chat__post__form__btn"
