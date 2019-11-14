@@ -5,7 +5,9 @@
         .group__header__detail__info__name
           = @group.name
         .group__header__detail__info__member
-          Member:
+          - @group.users.each do |user|
+            Member:
+            = user.name
       .group__header__edit
         Edit
   .group__chats
