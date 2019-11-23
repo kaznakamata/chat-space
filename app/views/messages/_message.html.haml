@@ -1,9 +1,9 @@
-.group__chat__contents
+.group__contents
   - @messages.each do |message|
-    .group__chat__contents__info
-      .group__chat__contents__info__who
+    .group__contents__info
+      .group__contents__info__who
         = message.user_id
-      .group__chat__contents__info__date
+      .group__contents__info__date
         = message.created_at
-    .group__chat__contents__message
+    .group__contents__message
       = message.body
