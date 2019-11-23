@@ -14,11 +14,11 @@
   -# .group__chat__contents    -# 親
   = render partial:'message', collectoin: @messages
   
-  .group__chat__post
-    .group__chat__post__form
+  .group__post
+    .group__post__form
       = form_for [@group, @message] do |f|
-        = f.text_field :body, class: "input-box group__chat__post__form__box", placeholder: "type a message"
-        = f.label :image, class: "input-box__image group__chat__post__form__image" do
+        = f.text_field :body, class: "input-box group__post__form__box", placeholder: "type a message"
+        = f.label :image, class: "input-box__image group__post__form__image" do
           = icon('fas', 'image', class: 'icon')
           = f.file_field :image, class: 'hidden'
-        = f.submit 'Send', class: "group__chat__post__form__btn"
+        = f.submit 'Send', class: "group__post__form__btn"
