@@ -1,5 +1,5 @@
 .chat-group-form
-  %h1 新規チャットグループ
+  -# %h1 新規チャットグループ
   = form_for @group do |f|
     - if @group.errors.any?
       .chat-group-form__errors
@@ -12,7 +12,6 @@
         = f.label :name, class: 'chat-group-form__label'
       .chat-group-form__field--right
         = f.text_field :name, class: 'chat__group_name chat-group-form__input', placeholder: 'グループ名を入力してください'
-    .chat-group-form__field.clearfix
       / この部分はインクリメンタルサーチ（ユーザー追加の非同期化)のときに使用します
     .chat-group-form__field.clearfix
       .chat-group-form__field--left

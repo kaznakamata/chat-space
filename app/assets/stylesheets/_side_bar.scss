@@ -23,6 +23,7 @@
       background-color: #2f3e51;
       font-weight: bold;
       height: calc(100vh - 140px);
+      overflow: scroll;
       &__view{
         padding-bottom: 40px;
         &__name{

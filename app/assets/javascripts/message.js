@@ -1,37 +1,22 @@
 $(function(){
   function buildHTML(message){
-    // 「もしメッセージに画像が含まれていたら」という条件式
-    if (message.image == true) {
-      var html = 
-      `<div class="group__contents__info">
-                    <div class="group__contents__info__who">
-                      ${message.user_id}
-                    </div>
-                    <div class="group__contents__info__date">
-                      ${message.created_at}
-                    </div>
-                  </div>
-                  <div class="group__contents__message">
-                      ${message.body}
-                      <img src="${message.image}">
-                  </div>`//メッセージに画像が含まれる場合のHTMLを作る
-      return html;
-    } else {
+    var image = message.image ? `<img class:'group__contents__message__image' src=${message.image}>` : ''
       var html = `<div class="group__contents__info">
                     <div class="group__contents__info__who">
-                      ${message.user_id}
+                      ${message.name}
                     </div>
                     <div class="group__contents__info__date">
                       ${message.created_at}
                     </div>
                   </div>
                   <div class="group__contents__message">
+                    ${image}
+                    <div class="group__contents__message__body">
                       ${message.body}
-                  </div>
-      `//メッセージに画像が含まれない場合のHTMLを作る
+                    </div>
+                  </div>`
       return html;
     }
-  }
   $('#new_message').on('submit', function(e){
     e.preventDefault();
     var formData = new FormData(this);
@@ -47,8 +32,13 @@ $(function(){
     .done(function(message){
       var html = buildHTML(message);
       $('.group__contents').append(html);
-      $('#message_body').val('');
+      $('.group__contents').animate({ scrollTop: $('.group__contents')[0].scrollHeight});
       $('.group__post__form__btn').prop('disabled', false);
+      $('#new_message')[0].reset()
     })
+    .fail(function() {
+      alert("メッセージまたは画像をつけてください。");
+      $('.group__post__form__btn').prop('disabled', false)
+    });
   })
 })
