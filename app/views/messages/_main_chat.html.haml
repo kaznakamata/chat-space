@@ -9,9 +9,11 @@
             Member:
             = user.name
       .group__header__edit
-        Edit
+        =link_to edit_group_path(@group) do
+          .group__header__edit__btn
+          Edit
+          -# %span<>
 
-  -# .group__chat__contents    -# 親
   = render partial:'message', collectoin: @messages
   
   .group__post
