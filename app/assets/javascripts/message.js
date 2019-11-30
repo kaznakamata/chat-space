@@ -1,26 +1,28 @@
 $(function(){
   var buildHTML = function(message) {
-      var image = message.image ? `<img class="group__contents__message__image" src="${message.image}">` : '' ;
-      var message_message = message.body ? `<div class="group__contents__message__body" data-message-id="${message.id}">
+      var image = message.image ? `<img class="group__contents__message__body__image" src="${message.image}">` : '' ;
+      var message_message = message.body ? `<div class="group__contents__message__body__text">
                                               ${message.body}
                                             </div>` : '' ;  
-      var html = `<div class="group__contents__info">
-                    <div class="group__contents__info__who">
-                      ${message.name}
+      var html = `<div class="group__contents__message" data-message-id="${message.id}">
+                    <div class="group__contents__message__info">
+                      <div class="group__contents__message__info__who">
+                        ${message.name}
+                      </div>
+                      <div class="group__contents__message__info__date">
+                        ${message.created_at}
+                      </div>
                     </div>
-                    <div class="group__contents__info__date">
-                      ${message.created_at}
+                    <div class="group__contents__message__body">
+                      ${image}
+                      ${message_message}
                     </div>
-                  </div>
-                  <div class="group__contents__message">
-                    ${image}
-                    ${message_message}
                   </div>`
       return html;
   }
   var reloadMessages = function() {
     if (window.location.href.match(/\/groups\/\d+\/messages/)){ 
-      var last_message_id = $(".group__contents__message__body:last").data('messageId');
+      var last_message_id = $(".group__contents__message:last").data('message-id');
       $.ajax({
         url: location.href.replace(/messages/,'api/messages'),
         type: 'get',
@@ -33,11 +35,14 @@ $(function(){
           insertHTML += buildHTML(message)
         });
         $('.group__contents').append(insertHTML);
-        $('.group__contents').animate({ scrollTop: $('.group__contents')[0].scrollHeight});
+        if (insertHTML) {
+          $('.group__contents').animate({ scrollTop: $('.group__contents')[0].scrollHeight});
+        }
       })
       .fail(function() {
         console.log('error');
-    })};
+      });
+    }
   };
   $('#new_message').on('submit', function(e){
     e.preventDefault();

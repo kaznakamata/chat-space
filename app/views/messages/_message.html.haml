@@ -1,11 +1,24 @@
 .group__contents
   - @messages.each do |message|
-    .group__contents__info
-      .group__contents__info__who
-        = message.user.name
-      .group__contents__info__date
-        = message.created_at.strftime("%Y/%m/%d %H:%M")
-    .group__contents__message
-      = image_tag message.image.url, class: 'group__contents__message__image' if message.image.present?
-      .group__contents__message__body{data: {message_id: "#{message.id}"}}
-        = message.body
+    .group__contents__message{data: {message_id: "#{message.id}"}}
+      .group__contents__message__info
+        .group__contents__message__info__who
+          = message.user.name
+        .group__contents__message__info__date
+          = message.created_at.strftime("%Y/%m/%d %H:%M")
+      .group__contents__message__body
+        = image_tag message.image.url, class: 'group__contents__message__body__image' if message.image.present?
+        .group__contents__message__body__text
+          = message.body
+
+-# .group__contents
+-#   - @messages.each do |message|
+-#     .group__contents__info
+-#       .group__contents__info__who
+-#         = message.user.name
+-#       .group__contents__info__date
+-#         = message.created_at.strftime("%Y/%m/%d %H:%M")
+-#     .group__contents__message{data: {message_id: "#{message.id}"}}
+-#       = image_tag message.image.url, class: 'group__contents__message__image' if message.image.present?
+-#       .group__contents__message__body{data: {message_id: "#{message.id}"}}
+-#         = message.body
