@@ -5,14 +5,13 @@
         .group__header__detail__info__name
           = @group.name
         .group__header__detail__info__member
+          Member:
           - @group.users.each do |user|
-            Member:
             = user.name
       .group__header__edit
         =link_to edit_group_path(@group) do
           .group__header__edit__btn
           Edit
-          -# %span<>
 
   = render partial:'message', collectoin: @messages
   
