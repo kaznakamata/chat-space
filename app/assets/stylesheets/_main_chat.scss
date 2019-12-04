@@ -1,3 +1,13 @@
+.hidden{
+  display: none;
+}
+
+.icon{
+  cursor: pointer;
+  text-rendering: auto;
+  display: inline-block;
+}
+
 .group{
   &__header{
     width: calc(100vw - 300px);
@@ -75,13 +85,14 @@
     background-color: #ddd;
     height: 80px;
     line-height: 90px;
-    position: relative;
+    // position: relative;
     &__form{
       height: 80px;
       padding: 0 40px;
+      position: relative;
       &__box{
         height: 50px;
-        width: calc(100vw - 520px);
+        width: calc(100vw - 500px);
         padding-left: 10px;
         position: absolute;
         top: 13px;
@@ -89,7 +100,7 @@
       &__image{
         position: absolute;
         height: 80px;
-        right: 185px;
+        right: 160px;
         line-height: 80px;
       }
       &__file{
@@ -97,6 +108,7 @@
       }
       &__btn{
         background-color: #38AEF0;
+        color: white;
         position: absolute;
         right: 40px;
         top: 15px;

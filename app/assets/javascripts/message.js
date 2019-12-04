@@ -14,8 +14,8 @@ $(function(){
                       </div>
                     </div>
                     <div class="group__contents__message__body">
-                      ${image}
                       ${message_message}
+                      ${image}
                     </div>
                   </div>`
       return html;
